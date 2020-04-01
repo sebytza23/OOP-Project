@@ -7,10 +7,9 @@ using namespace std;
 
 class Ascii
 {
-public:
+private:
     int cod;
     int v[100];
-private:
     int n = 0;
 public:
     friend ostream& operator << (ostream& out, const Ascii& c) {
@@ -25,15 +24,7 @@ public:
         return cod < val.cod;
     }
     void sortare() {
-        int aux;
-        for (int i = 0; i < n; i++)
-            for (int j = i + 1; j < n; j++) {
-                if (v[i] < v[j]) {
-                    aux = v[i];
-                    v[i] = v[j];
-                    v[j] = aux;
-                }
-            }
+        sort(v, v + n, greater<int>());
     }
     void cinandcout() {
         ifstream f("in.txt");
@@ -47,8 +38,7 @@ public:
         n--;
         ofstream g2("out2.txt");
         while (n >= 0) {
-            g2 << char(v[n]) << " ";
-            n--;
+            g2 << char(v[n--]) << " ";
         }
     }
 };
