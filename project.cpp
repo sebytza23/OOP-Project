@@ -1,16 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-#include <vector>
-using namespace std;
 
+using namespace std;
 
 class Ascii
 {
 private:
+    int n = 0;
     int cod;
     int v[100];
-    int n = 0;
 public:
     friend ostream& operator << (ostream& out, const Ascii& c) {
         out << char(c.cod) << " ";
@@ -19,9 +18,6 @@ public:
     friend istream& operator >> (istream& in, Ascii& c) {
         in >> c.cod;
         return in;
-    }
-    bool operator < (const Ascii& val) const {
-        return cod < val.cod;
     }
     void sortare() {
         sort(v, v + n, greater<int>());
