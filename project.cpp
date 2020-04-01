@@ -35,14 +35,7 @@ public:
                 }
             }
     }
-    int valn() {
-        return n;
-    }
-    void atrbn(int atr) {
-        n = atr;
-    }
     void cinandcout() {
-        Ascii c1;
         ifstream f("in.txt");
         ofstream g1("out1.txt");
         while (f >> *this) {
